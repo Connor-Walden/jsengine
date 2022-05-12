@@ -1,6 +1,7 @@
 class Script extends Component {
     constructor(entity, script) {
-        super(entity);
+        super(entity, "Script");
+
         this.script = script;
     }
 
