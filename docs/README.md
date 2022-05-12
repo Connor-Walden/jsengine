@@ -10,7 +10,7 @@
     LanternWeb is a real-time game engine for your browser, it utilizes the html canvas api to render 2D graphics.
 
 # Getting Started
-    - Download the latest release from the releases section of the github repo for LanternWeb (https://github.com/Connor-Walden/jsengine/releases/tag/1.0)
+    - Download the latest release from the releases section of the github repo for LanternWeb (https://github.com/Connor-Walden/jsengine/releases)
     - Read the README.md file in there to get started today!
 
 # Layer
