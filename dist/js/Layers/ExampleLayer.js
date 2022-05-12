@@ -28,6 +28,7 @@ const background_entity_example = renderer => {
         0,
         1
     );
+    example_entity.AddComponent(example_transform);
 
     const example_sprite_renderer = new SpriteRenderer(
         example_entity,
@@ -39,6 +40,7 @@ const background_entity_example = renderer => {
             h: renderer.canvas.height
         }
     );
+    example_entity.AddComponent(example_sprite_renderer);
 
     const example_script = new Script(
         example_entity, {
@@ -50,9 +52,6 @@ const background_entity_example = renderer => {
             }
         }
     );
-
-    example_entity.AddComponent(example_transform);
-    example_entity.AddComponent(example_sprite_renderer);
     example_entity.AddComponent(example_script);
 
     return example_entity;
