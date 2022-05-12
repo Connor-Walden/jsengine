@@ -1,0 +1,30 @@
+- Renderer [x]
+- Canvas [x]
+- Render Shapes
+  - Rectangle / Square [x]
+  - Circle / Arc [x]
+  - Triangle [ ]
+- Render graphics
+  - Sprite / Images [x]
+- Render UI elements
+  - Button [x]
+  - Text [x]
+  - Slider [ ]
+  - Panel [ ]
+  - Checkbox [ ]
+- Events
+  - MouseDown [x]
+  - MouseUp [x]
+  - MouseMove [x]
+  - KeyDown [x]
+  - KeyUp [x]
+- Input
+  - getMouseDown() [x]
+  - getMousePosition() [x]
+  - getKeyDown(key) [x] 
+- Layers
+  - Layer Class [x]
+  - Layer stack in game [x]
+  - Layer stack control methods
+    - push_layer(layer) [x]
+    - pop_layer(layer) [x]
