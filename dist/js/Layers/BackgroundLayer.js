@@ -1,22 +1,20 @@
 class BackgroundLayer extends Layer {
-  constructor(game, name, bgImage) {
-    super(name);
+    constructor(game, name) {
+        super(name);
 
-    this.renderer = game.renderer;
-    this.image = bgImage;
-  }
+        this.renderer = game.renderer;
+    }
 
-  OnAttach() {
-    this.sprite = new Sprite(this.renderer, this.image, 0, 0, this.renderer.canvas.width, this.renderer.canvas.height);
-  }
+    OnAttach() {
+        // Create Entities for this layer
+        const ent = new Entity(0, 'background');
+        ent.AddComponent(new Transform(ent, { x: 0, y: 0 }, 0, 1));
+        ent.AddComponent(new SpriteRenderer(ent, this.renderer, 'img/background.jpg', { x: 0, y: 0, w: this.renderer.canvas.width, h: this.renderer.canvas.height }));
 
-  OnUpdate() {
-    this.sprite.draw();
-  }
+        // Register the entities with the layer
+        this.AddEntity(ent);
 
-  SetImage(image) {
-    this.image = image;
-  
-    this.OnAttach();  // re-attach the new sprite
-  }
+        // call all of the entity's OnAttach() methods
+        super.OnAttach();
+    }
 }

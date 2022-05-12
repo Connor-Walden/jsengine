@@ -26,7 +26,15 @@ class GameLayer extends Layer {
     const rectEnt = new Entity(1, 'rectangle');
     rectEnt.AddComponent(new Transform(rectEnt, { x: 0, y: 0 }, 0, 1));
     rectEnt.AddComponent(new ShapeRenderer(rectEnt, this.renderer, 'rect', {x: 250, y: 250, w: 100, h: 100}, {r: 255, g: 0, b: 0}, true));
-
+    rectEnt.AddComponent(new Script(rectEnt, {
+      OnAttach: ent => {
+        console.log('rectangle attached');
+      },
+      OnUpdate: ent => {
+        console.log('rectangle updated');
+      }
+    }));
+  
     const circleEnt = new Entity(2, 'circle');
     circleEnt.AddComponent(new Transform(circleEnt, { x: 0, y: 0 }, 0, 1));
     circleEnt.AddComponent(new ShapeRenderer(circleEnt, this.renderer, 'arc', { x: 400, y: 400, r: 50, s: 0, e: Math.PI * 2 }, { r: 0, g: 255, b: 0 }, true));

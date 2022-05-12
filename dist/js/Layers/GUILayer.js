@@ -1,24 +1,32 @@
 class GUILayer extends Layer {
-  constructor(game, name) {
-    super(name);
+    constructor(game, name) {
+        super(name);
 
-    this.renderer = game.renderer;
-  }
+        this.renderer = game.renderer;
 
-  OnAttach() {
-    this.text = new Text(
-      this.renderer, 'GUI testing :)', 24,
-      this.renderer.canvas.width / 4 - 150, this.renderer.canvas.height / 4 - 20,
-      'NORMAL', 255, 255, 255
-    );
+        this.show = true;
+    }
 
-    this.button = new Button(this.renderer, 50, 50, 100, 50, 255, 255, 255, 'Test button', event => {
-      console.log('Button clicked!');
-    });
-  }
+    OnAttach() {
+        const ent = new Entity(0, 'uiText');
+        ent.AddComponent(new Transform(ent, { x: 100, y: 100, w: 0, h: 0 }, 0, 1));
+        ent.AddComponent(new TextRenderer(ent, this.renderer, 'Hello World', '24px', { r: 255, g: 255, b: 255 }, true));
 
-  OnUpdate() {
-    this.text.draw();
-    this.button.draw();
-  }
+        const buttonEnt = new Entity(1, 'uiButton');
+        buttonEnt.AddComponent(new Transform(buttonEnt, { x: 100, y: 200, w: 100, h: 50 }, 0, 1));
+        buttonEnt.AddComponent(new Button(buttonEnt, this.renderer, 'Click Me', { r: 255, g: 255, b: 255 }, () => this.cbFun(ent)));
+
+        this.AddEntity(ent);
+        this.AddEntity(buttonEnt);
+
+        super.OnAttach();
+    }
+
+    cbFun(entity) {
+        if (entity.GetComponent('TextRenderer').GetText() === 'Hello World') {
+            entity.GetComponent('TextRenderer').SetText('Clicked');
+        } else {
+            entity.GetComponent('TextRenderer').SetText('Hello World');
+        }
+    }
 }
