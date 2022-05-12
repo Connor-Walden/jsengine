@@ -1,4 +1,4 @@
-## LanternWeb
+# LanternWeb
     - Description
         - Javascript game engine for 2d games.
     - Latest Release: 
