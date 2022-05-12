@@ -192,6 +192,7 @@
                     }
                 }
             );
+            example_entity.AddComponent(example_script);
         - Create the Script component and initialize the different values:
             - Entity
             - Scripts ( Obj => { OnAttach(), OnUpdate() } )
